@@ -19,15 +19,23 @@ It is created by passing an `options` object into it :- this object has a variet
 
 ### Attribute binding
 - How to connect data to the attributes of the HTML elements.
-- `v-bind` - dynamically binds an `attribute` to an `expression`.
+- `v-bind` directive - dynamically binds an `attribute` to an `expression`.
 `v-bind:src="expression"`
 - Shorthand for `v-bind` is `:` ie instead of `<img v-bind:src="image">` -  use `<img :src="image">` 
 - The attribute name that comes after the `:` specifies the attribute we are binding date to.
 
 ### Conditional rendering
 - How to conditionally display elements in Vue.
-- `v-if`, `v-else`, `v-else-if`, `v-show`.
+- `v-if`, `v-else`, `v-else-if`, `v-show` directives
 - Check for the `truthy` of expressions.
+- How to conditionally render elements depending on `if` a condition is met or not
+- `v-show` only toggles visibility, it does not insert/remove the element from the DOM.
+
+### List rendering
+- Display lists onto webpages with Vue - use `v-for`
+- `v-for` directive allows us to loop over an array and render data from within it.
+- e.g. <li v-for="detail in details"> {{detail}} </li>
+
 
 
 
