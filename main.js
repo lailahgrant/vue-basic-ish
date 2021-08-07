@@ -15,7 +15,36 @@ var app = new Vue({
             "80% cotton",
             "20% polyester",
             "Gender-neutral"
-        ]
+        ],
+        sizes: [
+            "10 small", "12 Medium", "18 Large"
+        ],
+        // array of objects
+        variants: [
+            { variantId: 2234, variantColor: "green", variantImage:"./vmSocks-green.jpg" },
+            { variantId: 2235, variantColor: "blue", variantImage: "./vmSocks-blue.jpg" }
+        ],
+
+        cart: 0,
+        // newCart: cart
+    },
+
+    //methods property
+    methods: {
+        addToCart() {
+            this.cart +=1
+        },
+
+        removeFromCart() {
+            if (this.cart > 0) {
+                this.cart -=1
+            }
+
+        },
+
+        updateProduct(variantImage) {
+            this.image = variantImage;
+        }
     }
 
 })
