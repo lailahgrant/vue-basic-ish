@@ -33,7 +33,7 @@
                 <p>{{ description }}</p>
                 <a :href="href">More about Socks</a>
                 <p v-if="inStock">In Stock</p>
-                <p v-else >Out of Stock</p>
+                <p :class="{outOfStock : !inStock }" v-else >Out of Stock</p>
 
                 <ul>
                     <span>Material</span>
@@ -42,6 +42,8 @@
                     <li v-for="size in sizes"> {{ size }}</li>
                 </ul>
 
+                <!-- Style Binding - style is bound which targets a css style, :style 
+                it can be "{backgroundColor}" or "{'background-color'}"-->
                 <div class="color-box" v-for="variant in variants" :key="variant.variantId" :style="{backgroundColor : variant.variantColor}" @mouseover="updateProduct(variant.variantImage)">
                     <!-- <p @mouseover="updateProduct(variant.variantImage)" >{{ variant.variantColor }}</p> -->
                 </div>
@@ -49,9 +51,11 @@
                                 
                 <!-- <button v-on:click="cart +=1 ">Add to Cart</button> -->
                 <!-- :disabled="!inStock" when inStock is false, this attribute binding will disable a button. 
-                We shouldn't click the Add to Cart button when there's no product in stock-->
-                <button v-on:click="addToCart" :disabled="!inStock">Add to Cart</button>
-                <button @click="removeFromCart">-</button>
+                We shouldn't click the Add to Cart button when there's no product in stock
+                If stock is empty, the Add to Cart button changes color from clickable to disable - Class binding
+                Class Binding - class name is bound which targets a class name in css, :class-->
+                <button v-on:click="addToCart" :disabled="!inStock" :class="{disabledButton : !inStock}" >Add to Cart</button>
+                <button @click="removeFromCart" :disabled= "!inStock" :class="{disabledButton : !inStock}">-</button>
 
                 <div class="cart">
                     <p>Cart {{ cart }}</p>

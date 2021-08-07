@@ -68,8 +68,13 @@ button {
     margin-top: 5px;
 }
 
+.disabledButton{
+    background-color: #d8d8d8;
+}
 
-
+.outOfStock{
+    text-decoration: line-through;
+}
 
 
 

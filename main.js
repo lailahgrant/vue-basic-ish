@@ -26,7 +26,6 @@ var app = new Vue({
         ],
 
         cart: 0,
-        // newCart: cart
     },
 
     //methods property
