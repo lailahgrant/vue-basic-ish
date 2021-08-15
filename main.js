@@ -6,8 +6,10 @@ var app = new Vue({
     data: {
         product: "Socks",
         description: "Socks keep our feet warm, soft and feeling comfy",
-        image: "./vmSocks-green.jpg",
+        // image: "./vmSocks-green.jpg", - replacing image with selectedVariant
+        selectedVariant:0,
         href: "https://en.wikipedia.org/wiki/Sock",
+        brand:"Vue Mastery",
         inStock: true,
         // inventory:100,
         onSale: true,
@@ -41,8 +43,25 @@ var app = new Vue({
 
         },
 
-        updateProduct(variantImage) {
-            this.image = variantImage;
+        // updateProduct(variantImage) {
+        //     this.image = variantImage;
+        // }
+
+        //index is from the v-for="(variant,index)"
+        updateProduct(index) {
+            this.selectedVariant = index
+            console.log(index) //when hover on green or blue, 0 1 are returned respectively
+        }
+    },
+
+    computed: {
+        title() {
+            return this.brand + ' ' + this.product
+        },
+        
+        //make image into a computed property
+        image() {
+            return this.variants[this.selectedVariant].variantImage
         }
     }
 
