@@ -10,7 +10,7 @@ var app = new Vue({
         selectedVariant:0,
         href: "https://en.wikipedia.org/wiki/Sock",
         brand:"Vue Mastery",
-        inStock: true,
+        // inStock: true, - make inStock a computed property,, instead of being a boolean,it gets values from variants
         // inventory:100,
         onSale: true,
         details: [
@@ -23,8 +23,8 @@ var app = new Vue({
         ],
         // array of objects
         variants: [
-            { variantId: 2234, variantColor: "green", variantImage:"./vmSocks-green.jpg" },
-            { variantId: 2235, variantColor: "blue", variantImage: "./vmSocks-blue.jpg" }
+            { variantId: 2234, variantColor: "green", variantImage:"./vmSocks-green.jpg", variantQuantity:10 },
+            { variantId: 2235, variantColor: "blue", variantImage: "./vmSocks-blue.jpg",  variantQuantity:0 }
         ],
 
         cart: 0,
@@ -62,6 +62,17 @@ var app = new Vue({
         //make image into a computed property
         image() {
             return this.variants[this.selectedVariant].variantImage
+        },
+
+        inStock() {
+            return this.variants[this.selectedVariant].variantQuantity
+        },
+
+        onsale() {
+            if (this.onSale) {
+                return this.brand + ' ' + this.product + ' are on sale!'
+            }
+                return this.brand + ' ' + this.product + ' are not on sale'
         }
     }
 

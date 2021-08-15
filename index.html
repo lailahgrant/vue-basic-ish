@@ -30,11 +30,12 @@
 
             <div class="product-info">
                 <!-- <h1> {{ product }} </h1> -->
-                <h1> {{ title }} </h1>
+                <h1> {{ title }}  </h1>  <!--- computed property-->
                 <p>{{ description }}</p>
                 <a :href="href">More about Socks</a>
                 <p v-if="inStock">In Stock</p>
                 <p :class="{outOfStock : !inStock }" v-else >Out of Stock</p>
+                <p>{{ onsale }}</p>
 
                 <ul>
                     <span>Material</span>
