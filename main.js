@@ -138,10 +138,10 @@ Vue.component('product', {
         },
 
         onsale() {
-            if (this.onSale) {
+            if ((this.onSale) && (this.inStock)) {
                 return this.brand + ' ' + this.product + ' are on sale!'
             }
-                return this.brand + ' ' + this.product + ' are not on sale'
+                return this.brand + ' ' + this.product + ' are not  on sale'
         },
 
         //shipping free or 2.99 for premium user
@@ -154,6 +154,24 @@ Vue.component('product', {
         }
     }
 
+})
+
+
+/* Assignment
+Create a new component for product-details with a prop of details*/
+Vue.component('product-details', {
+    props: {
+        details: {
+            type: Array,
+            required: true 
+        }
+    },
+
+    template: `
+        <ul>
+            <li v-for="detail in details">{{detail}}</li>
+        </ul>
+    `
 })
 
 
