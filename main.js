@@ -141,7 +141,7 @@ Vue.component('product', {
             if ((this.onSale) && (this.inStock)) {
                 return this.brand + ' ' + this.product + ' are on sale!'
             }
-                return this.brand + ' ' + this.product + ' are not  on sale'
+                return this.brand + ' ' + this.product + ` are not on sale`
         },
 
         //shipping free or 2.99 for premium user
